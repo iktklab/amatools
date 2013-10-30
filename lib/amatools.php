@@ -138,6 +138,10 @@ class AmaTools {
     }
 
     public function getUrl($xml) {
+        return 'http://amazon.jp/o/ASIN/'.$xml->ASIN;
+    }
+
+    public function getAffiliateUrl($xml) {
         return 'http://amazon.jp/o/ASIN/'.$xml->ASIN.'/'.ASSOCIATE_TAG;
     }
 
@@ -156,6 +160,14 @@ class AmaTools {
 
     public function getLargeImage($xml) {
         return $xml->LargeImage->URL;
+    }
+
+    public function getSalesRank($xml) {
+        return $xml->SalesRank;
+    }
+
+    public function getCategory($xml) {
+        return $xml->ItemAttributes->ProductGroup;
     }
 
     public function getPercentage($xml) {

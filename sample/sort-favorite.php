@@ -6,9 +6,9 @@ require_once dirname(__FILE__).'/../lib/amatools.php';
 
 // 必要なパラメータを設定
 $sort = 'salesrank';
-$search_index = 'Music';
-$browse_node = '562060';
-$item_page = '1';
+$search_index = 'VideoGames';
+$browse_node = '637394';
+$item_page = '2';
 
 // 初期化
 AmaTools::init();
@@ -28,4 +28,6 @@ for($i=0;$i<$item_num;$i++) {
     echo AmaTools::getPrice($item)."\n";
     echo AmaTools::getPercentage($item)."\n";
     echo AmaTools::getAvailability($item)."\n";
+    echo Amatools::getCategory($item)."\n";
+    echo Amatools::getSalesRank($item)."\n";
 }
