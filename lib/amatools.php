@@ -150,6 +150,7 @@ class AmaTools {
     }
 
     public static function getPrice($xml) {
+        if (!isset($xml->Offers->Offer->OfferListing->Price->Amount)) return '';
         return $xml->Offers->Offer->OfferListing->Price->Amount;
     }
 
@@ -171,6 +172,7 @@ class AmaTools {
     }
 
     public static function getPercentage($xml) {
+        if (!isset($xml->Offers->Offer->OfferListing->PercentageSaved)) return '0';
         if ($per = intval($xml->Offers->Offer->OfferListing->PercentageSaved)) {
             return $per;
         } else {
