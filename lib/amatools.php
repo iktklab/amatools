@@ -133,44 +133,44 @@ class AmaTools {
         return str_replace('%7E', '~', rawurlencode($str));
     }
 
-    public function getAsin($xml) {
+    public static function getAsin($xml) {
         return $xml->ASIN;
     }
 
-    public function getUrl($xml) {
+    public static function getUrl($xml) {
         return 'http://amazon.jp/o/ASIN/'.$xml->ASIN;
     }
 
-    public function getAffiliateUrl($xml) {
+    public static function getAffiliateUrl($xml) {
         return 'http://amazon.jp/o/ASIN/'.$xml->ASIN.'/'.ASSOCIATE_TAG;
     }
 
-    public function getTitle($xml) {
+    public static function getTitle($xml) {
         return $xml->ItemAttributes->Title;
     }
 
-    public function getPrice($xml) {
+    public static function getPrice($xml) {
         return $xml->Offers->Offer->OfferListing->Price->Amount;
     }
 
-    public function getAvailability($xml) {
+    public static function getAvailability($xml) {
         if (!isset($xml->Offers->Offer->OfferListing->Availability)) return '';
         return $xml->Offers->Offer->OfferListing->Availability;
     }
 
-    public function getLargeImage($xml) {
+    public static function getLargeImage($xml) {
         return $xml->LargeImage->URL;
     }
 
-    public function getSalesRank($xml) {
+    public static function getSalesRank($xml) {
         return $xml->SalesRank;
     }
 
-    public function getCategory($xml) {
+    public static function getCategory($xml) {
         return $xml->ItemAttributes->ProductGroup;
     }
 
-    public function getPercentage($xml) {
+    public static function getPercentage($xml) {
         if ($per = intval($xml->Offers->Offer->OfferListing->PercentageSaved)) {
             return $per;
         } else {
