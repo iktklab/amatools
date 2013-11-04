@@ -78,6 +78,21 @@ class AmaTools {
         return $xml->Items->Item;
     }
 
+    public static function getTotalPages() {
+        self::checkInputParams();
+        self::$sort       = 'salesrank';
+        self::$operation  = 'ItemSearch';
+        self::pakageParams();
+        $url = self::createUrl();
+        $xml = simplexml_load_file($url)
+            or die("XMLパースエラー");
+        if (!isset($xml->Items->Item)) {
+            var_dump($xml);
+            throw new Exception('XMLのエラー');
+        }
+        return $xml->Items->TotalPages;
+    }
+
     public static function checkInputParams() {
         self::checkKeys();
         self::checkAssociateTag();
