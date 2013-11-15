@@ -63,6 +63,20 @@ class AmaTools {
         }
     }
 
+    public static function getItems() {
+        self::checkInputParams();
+        self::$operation = 'ItemLookup';
+        self::pakageParams();
+        $url = self::createUrl();
+        $xml = simplexml_load_file($url)
+            or die("XMLパースエラー");
+        if (!isset($xml->Items->Item)) {
+            var_dump($xml);
+            throw new Exception('XMLのエラー');
+        }
+        return $xml->Items->Item;
+    }
+
     public static function salesRankItems() {
         self::checkInputParams();
         self::$sort       = 'salesrank';
