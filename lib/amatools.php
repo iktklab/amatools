@@ -195,6 +195,7 @@ class AmaTools {
     }
 
     public static function getSalesRank($xml) {
+        if (!isset($xml->SalesRank)) return '0';
         return $xml->SalesRank;
     }
 

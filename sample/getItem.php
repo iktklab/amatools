@@ -4,7 +4,7 @@ require_once dirname(__FILE__).'/config.php';
 require_once dirname(__FILE__).'/../lib/amatools.php';
 
 // 必要なパラメータを設定
-$item_id = array('B00FGL9QVW','B00G21S5SK');
+$item_id = array('B00FGL9QVW','B00GBVOF1W');
 
 // 初期化
 AmaTools::init();
