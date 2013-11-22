@@ -181,7 +181,7 @@ class AmaTools {
     }
 
     public static function getPrice($xml) {
-        if (!isset($xml->Offers->Offer->OfferListing->Price->Amount)) return '';
+        if (!isset($xml->Offers->Offer->OfferListing->Price->Amount)) return '0';
         return $xml->Offers->Offer->OfferListing->Price->Amount;
     }
 
