@@ -181,7 +181,7 @@ class AmaTools {
     }
 
     public static function getPrice($xml) {
-        if (!isset($xml->Offers->Offer->OfferListing->Price->Amount)) return '';
+        if (!isset($xml->Offers->Offer->OfferListing->Price->Amount)) return '0';
         return $xml->Offers->Offer->OfferListing->Price->Amount;
     }
 
@@ -211,4 +211,13 @@ class AmaTools {
             return '0';
         }
     }
+    public static function getReleaseDate($xml) {
+        if (!isset($xml->ItemAttributes->ReleaseDate)) return '';
+        if ($date = (string)$xml->ItemAttributes->ReleaseDate) {
+            return $date;
+        } else {
+            return '';
+        }
+    }
+
 }
